@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><%= fruit.name %></h1>
+    <h3><%= fruit._id %></h3>
+    <!-- Conditional rendering based on fruit's readiness -->
+    <% if (fruit.isReadyToEat) { %>
+    <p>This fruit is ready to eat!</p>
+    <% } else { %>
+    <p>This fruit is not ready to eat!</p>
+    <% } %>
+
+    <form action="/fruits/<%= fruit._id %>/edit" method="GET">
+      <button type="submit">Edit Fruit</button>
+    </form>
+    <form action="/fruits/<%= fruit._id %>/?_method=DELETE" method="POST">
+      <button type="submit">Delete Fruit</button>
+    </form>
+
+    <a href="/fruits">Back to Fruits</a>
+  </body>
+</html>
